@@ -11,7 +11,7 @@ import {
   testimonials, galleryImgs, admissionSteps, achievements, faqs,
   hospitals, perks,
 } from "@/components/site-data";
-import { Navbar, Footer, FinalCTA } from "@/components/site-layout";
+import { Navbar, Footer, FinalCTA, WhatsAppFloatingButton } from "@/components/site-layout";
 import { Reveal, Counter, Marquee, motion } from "@/components/site-motion";
 
 export const Route = createFileRoute("/")({
@@ -595,6 +595,7 @@ function Index() {
 
       <FinalCTA />
       <Footer />
+      <WhatsAppFloatingButton />
     </div>
   );
 }
