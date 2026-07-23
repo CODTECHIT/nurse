@@ -74,7 +74,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   head: () => ({
     meta: [
       { charSet: "utf-8" },
-      { name: "viewport", content: "width=1280" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "TEJA Nursing Academy & Coaching Centre — Nalgonda" },
       { name: "description", content: "Best nursing academy & coaching centre in Nalgonda, Telangana. GNM, B.Sc Nursing, B.Sc MLT, BPT & Paramedical courses with expert faculty and practical training." },
       { name: "author", content: "TEJA Nursing Academy" },
