@@ -224,7 +224,7 @@ function Index() {
             </p>
           </Reveal>
 
-          <div className="mt-14 grid grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {whyChoose.map(({ icon: Icon, title, desc }, i) => (
               <Reveal key={title} delay={i * 0.08}>
                 <div className="card-tilt group relative rounded-3xl bg-white p-6 shadow-[var(--shadow-card)] border border-border/60 hover:shadow-[var(--shadow-soft)] h-full">
@@ -241,7 +241,7 @@ function Index() {
             ))}
           </div>
 
-          <div className="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {perks.map((p, i) => (
               <Reveal key={p.title} delay={i * 0.06}>
                 <div className="rounded-2xl border border-primary/20 bg-white/60 backdrop-blur p-4 flex gap-3 h-full">
@@ -389,7 +389,7 @@ function Index() {
             <span className="text-xs font-bold uppercase tracking-[0.25em] text-primary">Our Facilities</span>
             <h2 className="mt-3 text-4xl sm:text-5xl font-black tracking-tight">Everything you need to <span className="text-gradient-pink">excel</span></h2>
           </Reveal>
-          <div className="mt-14 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          <div className="mt-14 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
             {facilities.map(({ icon: Icon, label }, i) => (
               <Reveal key={label} delay={i * 0.05}>
                 <motion.div whileHover={{ y: -6, rotate: -1 }} className="group rounded-3xl bg-white p-6 text-center shadow-[var(--shadow-card)] border border-border/60 hover:border-primary/40 h-full">
@@ -494,7 +494,7 @@ function Index() {
                 </Link>
               </div>
             </Reveal>
-            <div className="mt-8 grid grid-cols-3 gap-3">
+            <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 gap-3">
               {galleryImgs.slice(0, 6).map((g, i) => (
                 <Reveal key={i} delay={i * 0.05}>
                   <motion.div whileHover={{ scale: 1.05 }} className="aspect-square overflow-hidden rounded-2xl group cursor-pointer shadow-[var(--shadow-card)]">

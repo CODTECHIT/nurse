@@ -79,7 +79,7 @@ function AboutPage() {
       <section className="py-16 md:py-20 bg-background">
         <div className="mx-auto max-w-7xl px-4">
           <SectionTitle overline="WHY CHOOSE TEJA?" centered />
-          <div className="mt-10 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {whyChoose.map(({ icon: Icon, title, desc }) => (
               <div key={title} className="rounded-2xl bg-white p-6 text-center shadow-[var(--shadow-card)] border border-border/60">
                 <div className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-primary text-primary-foreground">
