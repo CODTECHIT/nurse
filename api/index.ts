@@ -1,14 +1,53 @@
 // @ts-ignore
 import server from "../dist/server/server.js";
 
+export default async function (req, res) {
+  try {
+    // 1. Create Web Request from Node req
+    const protocol = req.headers['x-forwarded-proto'] || 'https';
+    const host = req.headers['x-forwarded-host'] || req.headers['host'] || 'localhost';
+    const url = new URL(req.url || '/', `${protocol}://${host}`);
 
-export default function(request: Request) {
-  let url = request.url;
-  if (url.startsWith('/')) {
-    const host = request.headers.get('x-forwarded-host') || request.headers.get('host') || 'localhost';
-    const protocol = request.headers.get('x-forwarded-proto') || 'https';
-    url = `${protocol}://${host}${url}`;
+    const init = {
+      method: req.method,
+      headers: req.headers,
+    };
+
+    if (req.method !== 'GET' && req.method !== 'HEAD') {
+      const chunks = [];
+      for await (const chunk of req) {
+        chunks.push(chunk);
+      }
+      init.body = Buffer.concat(chunks);
+    }
+
+    const request = new Request(url.href, init);
+
+    // 2. Call the SSR handler
+    const response = await server.fetch(request, process.env, {});
+
+    // 3. Write Web Response back to Node res
+    res.statusCode = response.status;
+    response.headers.forEach((value, key) => {
+      res.setHeader(key, value);
+    });
+
+    if (response.body) {
+      const reader = response.body.getReader();
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) {
+          res.end();
+          break;
+        }
+        res.write(value);
+      }
+    } else {
+      res.end();
+    }
+  } catch (err) {
+    console.error("SSR Error:", err);
+    res.statusCode = 500;
+    res.end("Internal Server Error");
   }
-  const absoluteRequest = new Request(url, request);
-  return server.fetch(absoluteRequest, process.env, {});
 }
