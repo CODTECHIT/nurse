@@ -102,7 +102,7 @@ function Index() {
                 <span className="absolute -bottom-2 left-0 right-0 h-3 bg-[var(--gold)]/50 rounded-full" />
               </span>
             </h1>
-            <p className="mt-6 text-lg text-white/90 max-w-xl leading-relaxed">
+            <p className="mt-6 text-xl text-white/90 max-w-2xl leading-relaxed">
               India's most trusted nursing academy in Nalgonda — where 5,000+ students discovered their calling in healthcare.
               Expert faculty, hands-on clinical training, and a career that heals the world.
             </p>
@@ -219,7 +219,7 @@ function Index() {
             <h2 className="mt-3 text-4xl sm:text-5xl font-black tracking-tight">
               A nursing academy built on <span className="text-gradient-pink">practice</span>, not theory.
             </h2>
-            <p className="mt-4 text-muted-foreground">
+            <p className="mt-4 text-lg text-muted-foreground">
               We don't just teach nursing — we shape confident healthcare professionals who lead wards, ORs and communities across India and abroad.
             </p>
           </Reveal>
@@ -234,8 +234,8 @@ function Index() {
                   <div className="grid h-14 w-14 place-items-center rounded-2xl bg-primary text-primary-foreground group-hover:scale-110 group-hover:rotate-6 transition-transform">
                     <Icon className="h-6 w-6" />
                   </div>
-                  <h3 className="mt-5 font-bold text-lg text-foreground">{title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{desc}</p>
+                  <h3 className="mt-5 font-bold text-xl text-foreground">{title}</h3>
+                  <p className="mt-2 text-base text-muted-foreground leading-relaxed">{desc}</p>
                 </div>
               </Reveal>
             ))}
@@ -269,7 +269,7 @@ function Index() {
                 <span className="text-xs font-bold uppercase tracking-[0.25em] text-primary">Our Courses</span>
                 <h2 className="mt-3 text-4xl sm:text-5xl font-black tracking-tight">Programmes that build careers.</h2>
               </div>
-              <Link to="/courses" className="inline-flex items-center gap-2 rounded-full border-2 border-primary px-5 py-2.5 text-primary text-sm font-bold hover:bg-primary hover:text-primary-foreground transition-colors">
+              <Link to="/courses" className="inline-flex items-center gap-2 rounded-full border-2 border-primary px-5 py-2.5 text-primary text-base font-bold hover:bg-primary hover:text-primary-foreground transition-colors">
                 View All Courses <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
@@ -289,9 +289,9 @@ function Index() {
                       </div>
                     </div>
                     <div className="p-5 pt-7 flex-1 flex flex-col">
-                      <h3 className="font-bold text-primary text-lg">{c.name}</h3>
-                      <p className="mt-1 text-xs text-muted-foreground">{c.duration}</p>
-                      <div className="mt-auto pt-4 inline-flex items-center gap-1.5 text-xs font-bold text-primary group-hover:gap-3 transition-all">
+                      <h3 className="font-bold text-primary text-xl">{c.name}</h3>
+                      <p className="mt-1 text-sm text-muted-foreground">{c.duration}</p>
+                      <div className="mt-auto pt-4 inline-flex items-center gap-1.5 text-sm font-bold text-primary group-hover:gap-3 transition-all">
                         View Details <ArrowRight className="h-3 w-3" />
                       </div>
                     </div>
@@ -307,14 +307,14 @@ function Index() {
               <div className="relative flex flex-wrap items-baseline gap-3 justify-between">
                 <div>
                   <h3 className="text-2xl sm:text-3xl font-black text-gradient-pink">Paramedical Diploma Courses</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">2026 exam batch • Eligibility: Inter / 10th pass • Free Hostel</p>
+                  <p className="mt-2 text-base text-muted-foreground">2026 exam batch • Eligibility: Inter / 10th pass • Free Hostel</p>
                 </div>
                 <span className="rounded-full bg-[var(--gold)] px-4 py-1.5 text-xs font-bold text-[var(--gold-foreground)] shadow-md">✨ Admissions Open</span>
               </div>
               <ul className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 relative">
                 {allCourses.filter(c => c.category === "Paramedical").map((p, i) => (
                   <Reveal key={p.slug} delay={i * 0.03}>
-                    <Link to="/courses/$slug" params={{ slug: p.slug }} className="flex items-start gap-3 rounded-2xl bg-white px-4 py-3.5 text-sm border border-border/60 hover:border-primary/40 hover:shadow-md transition-all h-full group">
+                    <Link to="/courses/$slug" params={{ slug: p.slug }} className="flex items-start gap-3 rounded-2xl bg-white px-4 py-3.5 text-base border border-border/60 hover:border-primary/40 hover:shadow-md transition-all h-full group">
                       <div className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
                         <Cross className="h-4 w-4" />
                       </div>
@@ -373,8 +373,8 @@ function Index() {
                       {s.n}
                     </div>
                   </div>
-                  <h3 className="mt-6 font-bold text-lg text-foreground">{s.title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed max-w-xs mx-auto">{s.desc}</p>
+                  <h3 className="mt-6 font-bold text-xl text-foreground">{s.title}</h3>
+                  <p className="mt-2 text-base text-muted-foreground leading-relaxed max-w-xs mx-auto">{s.desc}</p>
                 </div>
               </Reveal>
             ))}
@@ -396,7 +396,7 @@ function Index() {
                   <div className="mx-auto grid h-16 w-16 place-items-center rounded-2xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground group-hover:rotate-6 transition-all">
                     <Icon className="h-7 w-7" />
                   </div>
-                  <p className="mt-4 text-sm font-bold text-foreground">{label}</p>
+                  <p className="mt-4 text-base font-bold text-foreground">{label}</p>
                 </motion.div>
               </Reveal>
             ))}
@@ -421,8 +421,8 @@ function Index() {
                     <div className="md:w-1/2 md:px-8">
                       <div className="rounded-2xl bg-white border border-primary/20 shadow-[var(--shadow-card)] p-6 hover:border-primary/50 transition-colors">
                         <div className="text-xs font-black text-primary tracking-widest">{a.year}</div>
-                        <h3 className="mt-2 text-xl font-bold text-foreground">{a.title}</h3>
-                        <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{a.desc}</p>
+                        <h3 className="mt-2 text-2xl font-bold text-foreground">{a.title}</h3>
+                        <p className="mt-2 text-base text-muted-foreground leading-relaxed">{a.desc}</p>
                       </div>
                     </div>
                     <div className="hidden md:grid h-6 w-6 place-items-center rounded-full bg-primary text-primary-foreground z-10 shadow-lg">
@@ -461,8 +461,8 @@ function Index() {
                     <div className="flex text-[var(--gold)]">
                       {Array.from({ length: 5 }).map((_, i) => <Star key={i} className="h-4 w-4 fill-current" />)}
                     </div>
-                    <div className="font-bold text-foreground">{testimonials[tIndex].name}</div>
-                    <div className="text-xs text-muted-foreground">{testimonials[tIndex].role}</div>
+                    <div className="font-bold text-lg text-foreground">{testimonials[tIndex].name}</div>
+                    <div className="text-sm text-muted-foreground">{testimonials[tIndex].role}</div>
                   </div>
                   <div className="ml-auto flex gap-2">
                     <button aria-label="Previous" onClick={() => setTIndex((i) => (i - 1 + testimonials.length) % testimonials.length)} className="grid h-10 w-10 place-items-center rounded-full border border-primary text-primary hover:bg-primary hover:text-primary-foreground transition">
@@ -520,7 +520,7 @@ function Index() {
               <Reveal key={f.q} delay={i * 0.05}>
                 <div className={`rounded-2xl border transition-all ${openFaq === i ? "border-primary/50 bg-primary/5 shadow-md" : "border-border bg-white hover:border-primary/30"}`}>
                   <button onClick={() => setOpenFaq(openFaq === i ? null : i)} className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left">
-                    <span className="font-bold text-foreground">{f.q}</span>
+                    <span className="font-bold text-lg text-foreground">{f.q}</span>
                     <motion.div animate={{ rotate: openFaq === i ? 45 : 0 }} className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-primary text-primary-foreground">
                       <Plus className="h-4 w-4" />
                     </motion.div>
@@ -531,7 +531,7 @@ function Index() {
                     transition={{ duration: 0.3 }}
                     className="overflow-hidden"
                   >
-                    <div className="px-6 pb-5 text-sm text-muted-foreground leading-relaxed">{f.a}</div>
+                    <div className="px-6 pb-5 text-base text-muted-foreground leading-relaxed">{f.a}</div>
                   </motion.div>
                 </div>
               </Reveal>
@@ -554,9 +554,9 @@ function Index() {
                   <div className={`grid h-14 w-14 place-items-center rounded-2xl ${tone === "gold" ? "bg-[var(--gold)] text-[var(--gold-foreground)]" : "bg-primary text-primary-foreground"}`}>
                     <Icon className="h-6 w-6" />
                   </div>
-                  <h3 className="mt-5 font-bold text-lg text-foreground">{title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground flex-1">{desc}</p>
-                  <Link to="/contact" className="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-primary hover:gap-3 transition-all">
+                  <h3 className="mt-5 font-bold text-xl text-foreground">{title}</h3>
+                  <p className="mt-2 text-base text-muted-foreground flex-1">{desc}</p>
+                  <Link to="/contact" className="mt-4 inline-flex items-center gap-1.5 text-base font-bold text-primary hover:gap-3 transition-all">
                     {cta} <ArrowRight className="h-3.5 w-3.5" />
                   </Link>
                 </motion.div>
@@ -579,10 +579,10 @@ function Index() {
                     <Bell className="h-3.5 w-3.5" /> Stay Updated
                   </div>
                   <h3 className="mt-4 text-3xl sm:text-4xl font-black">Get admission updates in your inbox</h3>
-                  <p className="mt-3 text-white/90">Batch dates, scholarships, exam alerts and career tips — one email a week.</p>
+                  <p className="mt-3 text-lg text-white/90">Batch dates, scholarships, exam alerts and career tips — one email a week.</p>
                 </div>
                 <form onSubmit={(e) => { e.preventDefault(); alert("Subscribed!"); }} className="flex flex-col sm:flex-row gap-3">
-                  <input required type="email" placeholder="your@email.com" className="flex-1 rounded-full bg-white/95 text-foreground px-5 py-3.5 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-4 focus:ring-white/30" />
+                  <input required type="email" placeholder="your@email.com" className="flex-1 rounded-full bg-white/95 text-foreground px-5 py-3.5 text-base placeholder:text-muted-foreground focus:outline-none focus:ring-4 focus:ring-white/30" />
                   <button className="rounded-full bg-[var(--gold)] text-[var(--gold-foreground)] px-6 py-3.5 font-bold hover:brightness-105 hover:scale-[1.03] transition-all shadow-lg whitespace-nowrap">
                     Subscribe
                   </button>

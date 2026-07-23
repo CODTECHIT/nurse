@@ -20,11 +20,11 @@ export function Navbar() {
         <Link to="/" className="flex items-center gap-3 shrink-0">
           <img src="/logo.jpeg" alt="TEJA Nursing Academy Logo" className="h-16 sm:h-[4.5rem] w-auto object-contain rounded-md scale-110 origin-left" />
           <div className="leading-tight hidden sm:flex flex-col justify-center">
-            <div className="font-black text-primary text-lg sm:text-xl tracking-wider uppercase">TEJA</div>
-            <div className="text-[11px] sm:text-xs text-muted-foreground font-bold uppercase tracking-wider mt-0.5">Nursing Academy<br />& Coaching Centre</div>
+            <div className="font-black text-primary text-xl sm:text-2xl tracking-wider uppercase">TEJA</div>
+            <div className="text-xs sm:text-sm text-muted-foreground font-bold uppercase tracking-wider mt-0.5">Nursing Academy<br />& Coaching Centre</div>
           </div>
         </Link>
-        <nav className="hidden lg:flex items-center gap-6 mx-auto text-sm font-medium">
+        <nav className="hidden lg:flex items-center gap-6 mx-auto text-base font-medium">
           {navLinks.map((l) => (
             <Link
               key={l.to}
@@ -71,8 +71,8 @@ export function FinalCTA() {
           <Trophy className="h-10 w-10" />
         </div>
         <div className="flex-1">
-          <h2 className="text-2xl sm:text-3xl font-black">Ready to Start Your Nursing Career?</h2>
-          <p className="mt-2 text-white/90 text-sm sm:text-base">Join TEJA Nursing Academy & Take The First Step Towards A Successful Future.</p>
+          <h2 className="text-3xl sm:text-4xl font-black">Ready to Start Your Nursing Career?</h2>
+          <p className="mt-2 text-white/90 text-base sm:text-lg">Join TEJA Nursing Academy & Take The First Step Towards A Successful Future.</p>
         </div>
         <a href={`tel:${PHONE}`} className="inline-flex items-center gap-2 rounded-full bg-[var(--gold)] px-7 py-3.5 text-[var(--gold-foreground)] font-black shadow-lg hover:brightness-105 hover:scale-[1.02] transition-all">
           Apply Now <ArrowRight className="h-4 w-4" />
@@ -145,8 +145,8 @@ export function PageHero({ title, subtitle }: { title: string; subtitle?: string
         <div className="absolute bottom-0 left-1/3 w-72 h-72 rounded-full bg-[var(--gold)]/20 blur-3xl" />
       </div>
       <div className="relative mx-auto max-w-7xl px-4 text-white text-center">
-        <h1 className="text-4xl sm:text-5xl font-black">{title}</h1>
-        {subtitle && <p className="mt-4 text-white/90 max-w-2xl mx-auto">{subtitle}</p>}
+        <h1 className="text-5xl sm:text-6xl font-black">{title}</h1>
+        {subtitle && <p className="mt-4 text-white/90 max-w-2xl mx-auto text-lg">{subtitle}</p>}
       </div>
     </section>
   );
