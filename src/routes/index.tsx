@@ -4,12 +4,13 @@ import {
   Phone, ArrowRight, Star, GraduationCap, BookOpen, Building2, Users,
   TrendingUp, Award, ChevronLeft, ChevronRight, Bell, Sparkles, Syringe,
   HeartPulse, Pill, Activity, Cross, Plus, ShieldCheck, PlayCircle, Quote,
+  Smartphone, Monitor, Download, ExternalLink, CheckCircle,
 } from "lucide-react";
 import nurseHero from "@/assets/nurse-hero.png";
 import {
   PHONE, whyChoose, allCourses, stats, facilities,
   testimonials, galleryImgs, admissionSteps, achievements, faqs,
-  hospitals, perks,
+  hospitals, perks, APP_LINK, onlineClassesList, onlineCoachingList,
 } from "@/components/site-data";
 import { Navbar, Footer, FinalCTA, WhatsAppFloatingButton } from "@/components/site-layout";
 import { Reveal, Counter, Marquee, motion } from "@/components/site-motion";
@@ -266,8 +267,8 @@ function Index() {
           <Reveal>
             <div className="flex items-end justify-between gap-4 flex-wrap">
               <div>
-                <span className="text-xs font-bold uppercase tracking-[0.25em] text-primary">Our Courses</span>
-                <h2 className="mt-3 text-4xl sm:text-5xl font-black tracking-tight">Programmes that build careers.</h2>
+                <span className="text-xs font-bold uppercase tracking-[0.25em] text-primary">Our Courses ( Online / Offline )</span>
+                <h2 className="mt-3 text-4xl sm:text-5xl font-black tracking-tight">Programmes that build careers <span className="text-gradient-pink">(Online / Offline)</span>.</h2>
               </div>
               <Link to="/courses" className="inline-flex items-center gap-2 rounded-full border-2 border-primary px-5 py-2.5 text-primary text-base font-bold hover:bg-primary hover:text-primary-foreground transition-colors">
                 View All Courses <ArrowRight className="h-4 w-4" />
@@ -291,6 +292,11 @@ function Index() {
                     <div className="p-5 pt-7 flex-1 flex flex-col">
                       <h3 className="font-bold text-primary text-xl">{c.name}</h3>
                       <p className="mt-1 text-sm text-muted-foreground">{c.duration}</p>
+                      {c.examType && (
+                        <span className="mt-2 inline-flex items-center gap-1 rounded-full bg-primary/10 px-3 py-1 text-xs font-extrabold text-primary w-fit">
+                          <Award className="h-3 w-3" /> {c.examType}
+                        </span>
+                      )}
                       <div className="mt-auto pt-4 inline-flex items-center gap-1.5 text-sm font-bold text-primary group-hover:gap-3 transition-all">
                         View Details <ArrowRight className="h-3 w-3" />
                       </div>
@@ -307,7 +313,7 @@ function Index() {
               <div className="relative flex flex-wrap items-baseline gap-3 justify-between">
                 <div>
                   <h3 className="text-2xl sm:text-3xl font-black text-gradient-pink">Paramedical Diploma Courses</h3>
-                  <p className="mt-2 text-base text-muted-foreground">2026 exam batch • Eligibility: Inter / 10th pass • Free Hostel</p>
+                  <p className="mt-2 text-base text-muted-foreground">2026 exam batch • Eligibility: Intermediate Pass • Free Hostel</p>
                 </div>
                 <span className="rounded-full bg-[var(--gold)] px-4 py-1.5 text-xs font-bold text-[var(--gold-foreground)] shadow-md">✨ Admissions Open</span>
               </div>
@@ -318,13 +324,141 @@ function Index() {
                       <div className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
                         <Cross className="h-4 w-4" />
                       </div>
-                      <span className="text-foreground/90 font-medium pt-1">{p.name}</span>
+                      <div className="flex flex-col">
+                        <span className="text-foreground/90 font-medium">{p.name}</span>
+                        {p.examType && (
+                          <span className="mt-0.5 text-[11px] font-extrabold text-primary">
+                            • {p.examType}
+                          </span>
+                        )}
+                      </div>
                     </Link>
                   </Reveal>
                 ))}
               </ul>
             </div>
           </Reveal>
+        </div>
+      </section>
+
+      {/* ONLINE CLASSES SECTION */}
+      <section className="py-20 bg-background relative overflow-hidden border-t border-border/60">
+        <div className="mx-auto max-w-7xl px-4 relative">
+          <Reveal>
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+              <div>
+                <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-widest text-primary">
+                  <Monitor className="h-3.5 w-3.5" /> DIGITAL LEARNING ACADEMY
+                </span>
+                <h2 className="mt-3 text-4xl sm:text-5xl font-black tracking-tight">ONLINE CLASSES</h2>
+                <p className="mt-2 text-base sm:text-lg text-muted-foreground">Complete semester and year-wise digital lectures available on our Android application.</p>
+              </div>
+              <a 
+                href={APP_LINK} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-pink-600 px-6 py-3 text-white font-bold shadow-lg hover:brightness-110 hover:scale-[1.02] transition-all w-fit"
+              >
+                <Download className="h-5 w-5" /> Download Android App <ExternalLink className="h-4 w-4 opacity-80" />
+              </a>
+            </div>
+          </Reveal>
+
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {onlineClassesList.map((cls, idx) => (
+              <Reveal key={cls.title} delay={idx * 0.06}>
+                <motion.div whileHover={{ y: -6 }} className="rounded-3xl bg-white p-7 shadow-[var(--shadow-card)] border border-border/80 hover:shadow-xl hover:border-primary/40 transition-all h-full flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center justify-between gap-2 mb-4">
+                      <span className="rounded-full bg-secondary px-3 py-1 text-xs font-extrabold text-foreground/80">{cls.badge}</span>
+                      <Smartphone className="h-5 w-5 text-primary" />
+                    </div>
+                    <h3 className="text-xl font-black text-primary">{cls.title}</h3>
+
+                    <div className="mt-5 space-y-2.5">
+                      {cls.years.map((y, i) => (
+                        <div key={i} className="flex items-center gap-2.5 bg-secondary/30 rounded-xl px-3.5 py-2.5 text-sm font-bold text-foreground">
+                          <CheckCircle className="h-4 w-4 text-[#25D366] shrink-0" />
+                          <span>{y}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="mt-7 pt-5 border-t border-border/40">
+                    <a 
+                      href={APP_LINK} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="w-full inline-flex items-center justify-center gap-2 rounded-full border-2 border-primary bg-primary/5 px-5 py-3 text-primary font-bold hover:bg-primary hover:text-white transition-colors text-sm"
+                    >
+                      <Download className="h-4 w-4" /> Watch on Android App
+                    </a>
+                  </div>
+                </motion.div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ONLINE COACHING FOR JOBS SECTION */}
+      <section className="py-20 bg-pink-mesh relative overflow-hidden border-y border-border">
+        <div className="mx-auto max-w-7xl px-4 relative">
+          <Reveal>
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+              <div>
+                <span className="inline-flex items-center gap-2 rounded-full bg-[var(--gold)] px-3 py-1 text-xs font-bold uppercase tracking-widest text-[var(--gold-foreground)]">
+                  <Award className="h-3.5 w-3.5" /> GOVERNMENT JOB RECRUITMENT
+                </span>
+                <h2 className="mt-3 text-4xl sm:text-5xl font-black tracking-tight">ONLINE COACHING FOR JOB'S</h2>
+                <p className="mt-2 text-base sm:text-lg text-muted-foreground">Specialized online coaching for Nursing Officers, Lab Technicians and ANM competitive exams.</p>
+              </div>
+              <Link 
+                to="/online-coaching" 
+                className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-white font-bold shadow-lg hover:bg-primary-dark transition-all w-fit"
+              >
+                View Full Coaching Details <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+          </Reveal>
+
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {onlineCoachingList.map((item, idx) => (
+              <Reveal key={item.title} delay={idx * 0.08}>
+                <motion.div whileHover={{ y: -8 }} className="rounded-3xl bg-white p-8 shadow-[var(--shadow-card)] border border-border/80 hover:shadow-2xl hover:border-primary/50 transition-all h-full flex flex-col justify-between relative overflow-hidden">
+                  <div>
+                    <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider text-primary mb-5">
+                      <Award className="h-4 w-4" /> {item.badge}
+                    </div>
+                    <h3 className="text-2xl font-black text-foreground tracking-tight leading-snug">{item.title}</h3>
+
+                    <div className="mt-6 space-y-3 pt-5 border-t border-border/60">
+                      {item.highlights.map((h, i) => (
+                        <div key={i} className="flex items-start gap-3">
+                          <div className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-[#25D366]/15 text-[#25D366] mt-0.5">
+                            <CheckCircle className="h-4 w-4" />
+                          </div>
+                          <span className="text-base font-bold text-foreground/90">{h}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="mt-8 pt-6 border-t border-border/40">
+                    <a 
+                      href={APP_LINK} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-6 py-3.5 text-white font-bold shadow-md hover:brightness-105 hover:scale-[1.02] transition-all text-sm"
+                    >
+                      <Smartphone className="h-4 w-4 fill-current" /> Join Coaching on App <ExternalLink className="h-4 w-4" />
+                    </a>
+                  </div>
+                </motion.div>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 

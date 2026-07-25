@@ -1,5 +1,5 @@
 import { createFileRoute, notFound, Link } from "@tanstack/react-router";
-import { Phone, MessageCircle, ArrowLeft, Clock, Users, Building, FileCheck, GraduationCap } from "lucide-react";
+import { Phone, MessageCircle, ArrowLeft, Clock, Users, Building, FileCheck, GraduationCap, Award } from "lucide-react";
 import { PageShell } from "@/components/site-layout";
 import { allCourses, PHONE, WHATSAPP } from "@/components/site-data";
 
@@ -91,6 +91,15 @@ function CourseDetailPage() {
                     </div>
                   </div>
                 )}
+                {course.examType && (
+                  <div className="flex items-start gap-3 rounded-2xl border border-border p-4 bg-white shadow-sm">
+                    <Award className="h-5 w-5 text-primary mt-0.5" />
+                    <div>
+                      <div className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Examination</div>
+                      <div className="font-semibold text-foreground mt-1">{course.examType}</div>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
 
@@ -106,6 +115,12 @@ function CourseDetailPage() {
                     <div className="h-2 w-2 rounded-full bg-primary mt-2 shrink-0" />
                     <span>Age Limit: {course.ageLimit}</span>
                   </li>
+                  {course.examType && (
+                    <li className="flex items-start gap-3">
+                      <div className="h-2 w-2 rounded-full bg-primary mt-2 shrink-0" />
+                      <span>Exam Pattern: {course.examType}</span>
+                    </li>
+                  )}
                 </ul>
               </div>
             </div>

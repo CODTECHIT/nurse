@@ -63,22 +63,120 @@ export function Navbar() {
   );
 }
 
-export function FinalCTA() {
+export function ApplyNowModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
+  if (!isOpen) return null;
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const name = formData.get("name") as string;
+    const phone = formData.get("phone") as string;
+    const course = formData.get("course") as string;
+    const qualification = formData.get("qualification") as string;
+    const message = formData.get("message") as string;
+
+    const text = `Hello TEJA Nursing Academy, I would like to apply for admission!\n\n*Name:* ${name}\n*Phone:* ${phone}\n*Course Interested:* ${course}\n${qualification ? `*Qualification:* ${qualification}\n` : ""}${message ? `*Message:* ${message}\n` : ""}\nPlease send me fee details and admission guidance.`;
+
+    const url = `https://wa.me/91${WHATSAPP}?text=${encodeURIComponent(text)}`;
+    window.open(url, "_blank");
+    onClose();
+  };
+
   return (
-    <section className="relative py-14 overflow-hidden" style={{ background: "var(--gradient-hero)" }}>
-      <div className="mx-auto max-w-7xl px-4 flex flex-col md:flex-row items-center gap-6 text-white text-center md:text-left">
-        <div className="grid h-20 w-20 place-items-center rounded-full bg-[var(--gold)] text-[var(--gold-foreground)] shrink-0 shadow-xl">
-          <Trophy className="h-10 w-10" />
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-sm animate-in fade-in duration-200">
+      <div 
+        className="relative w-full max-w-lg rounded-3xl bg-white p-6 sm:p-8 shadow-2xl border border-border/80 animate-in zoom-in-95 duration-200 text-foreground max-h-[90vh] overflow-y-auto text-left"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button 
+          onClick={onClose} 
+          type="button"
+          className="absolute top-5 right-5 grid h-9 w-9 place-items-center rounded-full bg-secondary text-muted-foreground hover:bg-secondary/80 hover:text-foreground transition-colors cursor-pointer"
+          aria-label="Close modal"
+        >
+          <X className="h-5 w-5" />
+        </button>
+
+        <div className="flex items-center gap-3 mb-6">
+          <div className="grid h-12 w-12 place-items-center rounded-2xl bg-primary/10 text-primary shrink-0">
+            <Trophy className="h-6 w-6" />
+          </div>
+          <div>
+            <h3 className="text-2xl font-black text-foreground tracking-tight">Apply for Admission</h3>
+            <p className="text-xs sm:text-sm text-muted-foreground font-medium">Fill details below & continue on WhatsApp</p>
+          </div>
         </div>
-        <div className="flex-1">
-          <h2 className="text-3xl sm:text-4xl font-black">Ready to Start Your Nursing Career?</h2>
-          <p className="mt-2 text-white/90 text-base sm:text-lg">Join TEJA Nursing Academy & Take The First Step Towards A Successful Future.</p>
-        </div>
-        <a href={`tel:${PHONE}`} className="inline-flex items-center gap-2 rounded-full bg-[var(--gold)] px-7 py-3.5 text-[var(--gold-foreground)] font-black shadow-lg hover:brightness-105 hover:scale-[1.02] transition-all">
-          Apply Now <ArrowRight className="h-4 w-4" />
-        </a>
+
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <label className="text-xs font-bold text-foreground/80 uppercase tracking-wider">Full Name <span className="text-primary">*</span></label>
+            <input required name="name" type="text" className="mt-1.5 w-full rounded-xl border border-border bg-background px-4 py-3 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20" placeholder="e.g. Priya Sharma" />
+          </div>
+
+          <div>
+            <label className="text-xs font-bold text-foreground/80 uppercase tracking-wider">Phone / WhatsApp Number <span className="text-primary">*</span></label>
+            <input required name="phone" type="tel" className="mt-1.5 w-full rounded-xl border border-border bg-background px-4 py-3 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20" placeholder="e.g. 9876543210" />
+          </div>
+
+          <div>
+            <label className="text-xs font-bold text-foreground/80 uppercase tracking-wider">Course Interested In <span className="text-primary">*</span></label>
+            <select required name="course" className="mt-1.5 w-full rounded-xl border border-border bg-background px-4 py-3 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 font-medium">
+              <option value="GNM (Staff Nurse Course)">GNM (Staff Nurse Course - 3 Years)</option>
+              <option value="B.Sc Nursing">B.Sc Nursing (4 Years)</option>
+              <option value="Post B.Sc Nursing">Post B.Sc Nursing (2 Years)</option>
+              <option value="B.Sc MLT">B.Sc MLT (Lab Technician - 3 Years)</option>
+              <option value="BPT (Physiotherapy)">BPT (Physiotherapy - 4 Years)</option>
+              <option value="Paramedical Diploma">Paramedical Diploma (DMLT, DMIT, DRGA, etc.)</option>
+              <option value="NCLEX / Staff Nurse Coaching">NCLEX / Staff Nurse Coaching</option>
+            </select>
+          </div>
+
+          <div>
+            <label className="text-xs font-bold text-foreground/80 uppercase tracking-wider">Previous Qualification / Eligibility</label>
+            <input name="qualification" type="text" className="mt-1.5 w-full rounded-xl border border-border bg-background px-4 py-3 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20" placeholder="e.g. Intermediate BiPC / GNM / 10th Pass" />
+          </div>
+
+          <div>
+            <label className="text-xs font-bold text-foreground/80 uppercase tracking-wider">Message or Questions (Optional)</label>
+            <textarea name="message" rows={3} className="mt-1.5 w-full rounded-xl border border-border bg-background px-4 py-3 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20" placeholder="Any queries regarding hostel, fee structure, etc." />
+          </div>
+
+          <div className="pt-2">
+            <button type="submit" className="w-full flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-6 py-3.5 text-white font-bold shadow-lg hover:brightness-105 hover:scale-[1.01] transition-all cursor-pointer">
+              <MessageCircle className="h-5 w-5 fill-current" /> Submit & Redirect to WhatsApp
+            </button>
+          </div>
+        </form>
       </div>
-    </section>
+    </div>
+  );
+}
+
+export function FinalCTA() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  return (
+    <>
+      <section className="relative py-14 overflow-hidden" style={{ background: "var(--gradient-hero)" }}>
+        <div className="mx-auto max-w-7xl px-4 flex flex-col md:flex-row items-center gap-6 text-white text-center md:text-left">
+          <div className="grid h-20 w-20 place-items-center rounded-full bg-[var(--gold)] text-[var(--gold-foreground)] shrink-0 shadow-xl">
+            <Trophy className="h-10 w-10" />
+          </div>
+          <div className="flex-1">
+            <h2 className="text-3xl sm:text-4xl font-black">Ready to Start Your Nursing Career?</h2>
+            <p className="mt-2 text-white/90 text-base sm:text-lg">Join TEJA Nursing Academy & Take The First Step Towards A Successful Future.</p>
+          </div>
+          <button 
+            onClick={() => setIsModalOpen(true)} 
+            type="button"
+            className="inline-flex items-center gap-2 rounded-full bg-[var(--gold)] px-7 py-3.5 text-[var(--gold-foreground)] font-black shadow-lg hover:brightness-105 hover:scale-[1.02] transition-all cursor-pointer"
+          >
+            Apply Now <ArrowRight className="h-4 w-4" />
+          </button>
+        </div>
+      </section>
+      <ApplyNowModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+    </>
   );
 }
 

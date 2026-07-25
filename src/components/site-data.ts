@@ -14,12 +14,13 @@ import {
 } from "lucide-react";
 
 export const PHONE = "9052223330";
-export const WHATSAPP = "9989140465";
+export const WHATSAPP = "9052223330";
 
 export const navLinks = [
   { label: "Home", to: "/" },
   { label: "About Us", to: "/about" },
   { label: "Courses", to: "/courses" },
+  { label: "Online Coaching", to: "/online-coaching" },
   { label: "Gallery", to: "/gallery" },
   { label: "Faculty", to: "/faculty" },
   { label: "Testimonials", to: "/testimonials" },
@@ -44,6 +45,7 @@ export interface Course {
   medium?: string;
   hostel: string;
   ageLimit: string;
+  examType?: string;
   whatsappName: string;
   img?: string;
 }
@@ -62,7 +64,8 @@ const PARAMEDICAL_SHARED = {
   gender: "Girls and Boys / Co-Education",
   hostel: "Free Hostel Available",
   eligibility: "Intermediate – Any Group / Vocational Intermediate – Any Group / Open Intermediate",
-  ageLimit: "No Age Limit"
+  ageLimit: "No Age Limit",
+  examType: "Second Year Exams",
 };
 
 export const allCourses: Course[] = [
@@ -76,6 +79,7 @@ export const allCourses: Course[] = [
     gender: "Girls and Boys",
     hostel: "Available",
     ageLimit: "No Age Limit",
+    examType: "Annual Exams",
     whatsappName: "GNM Staff Nurse Course",
     img: courseGnm,
   },
@@ -88,7 +92,22 @@ export const allCourses: Course[] = [
     gender: "Girls and Boys",
     hostel: "Available",
     ageLimit: "No Age Limit",
+    examType: "Semester Exams",
     whatsappName: "B.Sc Nursing",
+    img: courseBsc,
+  },
+  {
+    slug: "post-bsc-nursing",
+    name: "Post B.Sc Nursing",
+    fullName: "Post Basic B.Sc Nursing",
+    category: "Main",
+    duration: "2 Years",
+    eligibility: "GNM Pass with Registration",
+    gender: "Girls and Boys",
+    hostel: "Available",
+    ageLimit: "No Age Limit",
+    examType: "Annual Exams",
+    whatsappName: "Post B.Sc Nursing Course",
     img: courseBsc,
   },
   {
@@ -101,6 +120,7 @@ export const allCourses: Course[] = [
     gender: "Girls and Boys / Co-Education",
     hostel: "Free Hostel Available",
     ageLimit: "No Age Limit",
+    examType: "Annual Exams",
     whatsappName: "B.Sc MLT Lab Technician Course",
     img: courseGnm,
   },
@@ -115,6 +135,7 @@ export const allCourses: Course[] = [
     gender: "Girls and Boys / Co-Education",
     hostel: "Free Hostel Available",
     ageLimit: "No Age Limit",
+    examType: "Annual Exams",
     whatsappName: "BPT Physiotherapy Course",
     img: courseMsc,
   },
@@ -228,4 +249,74 @@ export const perks = [
   { title: "Live Clinical Postings", desc: "Rotational postings in 6 partner hospitals across departments." },
   { title: "Recorded Lectures", desc: "Miss a class? Every session is recorded and shared on the student portal." },
   { title: "Career Counselling", desc: "One-on-one sessions to plan India/abroad career pathways." },
+];
+
+export const APP_LINK = "https://play.google.com/store/apps/details?id=com.iqfsaa.bnutkb";
+
+export interface OnlineClassItem {
+  title: string;
+  badge: string;
+  years: string[];
+}
+
+export const onlineClassesList: OnlineClassItem[] = [
+  {
+    title: "GNM ONLINE CLASSES",
+    badge: "General Nursing & Midwifery",
+    years: ["GNM 1ST YEAR", "GNM 2ND YEAR", "GNM 3RD YEAR"],
+  },
+  {
+    title: "B.Sc NURSING ONLINE CLASSES",
+    badge: "Degree Course",
+    years: ["TOTAL 8 SEMESTERS ONLINE CLASSES AVAILABLE"],
+  },
+  {
+    title: "POST B.Sc NURSING ONLINE CLASSES",
+    badge: "Post Basic Degree",
+    years: ["1ST YEAR", "2ND YEAR"],
+  },
+  {
+    title: "DMLT ONLINE CLASSES",
+    badge: "Diploma in Medical Lab Tech",
+    years: ["1ST YEAR & 2ND YEAR ONLINE CLASSES"],
+  },
+  {
+    title: "B.Sc MLT ONLINE CLASSES",
+    badge: "Medical Lab Tech Degree",
+    years: ["1ST YEAR", "2ND YEAR", "3RD YEAR"],
+  },
+];
+
+export interface OnlineCoachingItem {
+  title: string;
+  badge: string;
+  highlights: string[];
+  color: string;
+}
+
+export const onlineCoachingList: OnlineCoachingItem[] = [
+  {
+    title: "STAFF NURSE / NURSING OFFICER'S",
+    badge: "Government & AIIMS Jobs",
+    highlights: ["TOTAL 20 SUBJECTS", "20 EXPERT FACULTY MEMBERS", "Complete Test Series & Notes"],
+    color: "pink",
+  },
+  {
+    title: "LAB TECHNICIAN JOB'S ONLINE COACHING",
+    badge: "Lab Technicians / MLT Jobs",
+    highlights: ["TOTAL 3 SUBJECT'S ONLINE COACHING", "MCQ Practice & Previous Papers", "Dedicated Expert Guidance"],
+    color: "gold",
+  },
+  {
+    title: "ANM ONLINE COACHING",
+    badge: "Auxiliary Nurse Midwife Jobs",
+    highlights: ["TOTAL 6 SUBJECTS ONLINE COACHING", "Comprehensive Syllabus Coverage", "Live & Recorded Sessions"],
+    color: "pink",
+  },
+  {
+    title: "DAN'S ANESTHESIA (DAT) COACHING",
+    badge: "Anesthesia Technician Jobs",
+    highlights: ["TOTAL 3 SUBJECTS", "EXPERT FACULTY MEMBERS", "Complete Test Series & Notes"],
+    color: "gold",
+  },
 ];

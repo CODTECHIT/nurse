@@ -60,25 +60,37 @@ function ContactPage() {
 
           <div>
             <SectionTitle overline="SEND US A MESSAGE" />
-            <form onSubmit={(e) => { e.preventDefault(); alert("Thank you! We'll contact you shortly."); }} className="mt-8 space-y-4 rounded-3xl bg-white p-6 sm:p-8 shadow-[var(--shadow-card)] border border-border/60">
+            <form onSubmit={(e) => {
+              e.preventDefault();
+              const form = e.currentTarget;
+              const formData = new FormData(form);
+              const name = formData.get("name") as string;
+              const phone = formData.get("phone") as string;
+              const course = formData.get("course") as string;
+              const message = formData.get("message") as string;
+
+              const text = `Hello TEJA Nursing Academy, I have an enquiry from the website contact form!\n\n*Name:* ${name}\n*Phone:* ${phone}\n${course ? `*Course:* ${course}\n` : ""}${message ? `*Message:* ${message}\n` : ""}\nPlease contact me with more details.`;
+              const url = `https://wa.me/91${WHATSAPP}?text=${encodeURIComponent(text)}`;
+              window.open(url, "_blank");
+            }} className="mt-8 space-y-4 rounded-3xl bg-white p-6 sm:p-8 shadow-[var(--shadow-card)] border border-border/60">
               <div>
-                <label className="text-xs font-bold text-foreground/80 uppercase tracking-wider">Full Name</label>
-                <input required type="text" className="mt-1.5 w-full rounded-xl border border-border bg-background px-4 py-3 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20" placeholder="Your name" />
+                <label className="text-xs font-bold text-foreground/80 uppercase tracking-wider">Full Name <span className="text-primary">*</span></label>
+                <input required name="name" type="text" className="mt-1.5 w-full rounded-xl border border-border bg-background px-4 py-3 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20" placeholder="Your name" />
               </div>
               <div>
-                <label className="text-xs font-bold text-foreground/80 uppercase tracking-wider">Phone Number</label>
-                <input required type="tel" className="mt-1.5 w-full rounded-xl border border-border bg-background px-4 py-3 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20" placeholder="10-digit mobile number" />
+                <label className="text-xs font-bold text-foreground/80 uppercase tracking-wider">Phone Number <span className="text-primary">*</span></label>
+                <input required name="phone" type="tel" className="mt-1.5 w-full rounded-xl border border-border bg-background px-4 py-3 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20" placeholder="10-digit mobile number" />
               </div>
               <div>
                 <label className="text-xs font-bold text-foreground/80 uppercase tracking-wider">Course Interested In</label>
-                <input type="text" className="mt-1.5 w-full rounded-xl border border-border bg-background px-4 py-3 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20" placeholder="e.g. GNM, B.Sc Nursing, NCLEX" />
+                <input name="course" type="text" className="mt-1.5 w-full rounded-xl border border-border bg-background px-4 py-3 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20" placeholder="e.g. GNM, B.Sc Nursing, NCLEX" />
               </div>
               <div>
                 <label className="text-xs font-bold text-foreground/80 uppercase tracking-wider">Message</label>
-                <textarea rows={4} className="mt-1.5 w-full rounded-xl border border-border bg-background px-4 py-3 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20" placeholder="Your query..." />
+                <textarea name="message" rows={4} className="mt-1.5 w-full rounded-xl border border-border bg-background px-4 py-3 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20" placeholder="Your query..." />
               </div>
-              <button type="submit" className="w-full rounded-full bg-primary px-6 py-3 text-primary-foreground font-bold shadow-[var(--shadow-soft)] hover:bg-primary-dark transition-colors">
-                Submit Enquiry
+              <button type="submit" className="w-full flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-6 py-3 text-white font-bold shadow-[var(--shadow-soft)] hover:brightness-105 transition-all cursor-pointer">
+                <MessageCircle className="h-5 w-5 fill-current" /> Submit Enquiry via WhatsApp
               </button>
             </form>
           </div>

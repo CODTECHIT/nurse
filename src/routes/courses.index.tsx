@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, GraduationCap, Sparkles, BookOpen } from "lucide-react";
+import { ArrowRight, GraduationCap, Sparkles, BookOpen, Award } from "lucide-react";
 import { PageShell, PageHero, SectionTitle } from "@/components/site-layout";
 import { allCourses, coachingPrograms } from "@/components/site-data";
 
@@ -39,6 +39,11 @@ function CoursesPage() {
                 <div className="p-5 pt-7 text-center flex-1 flex flex-col">
                   <h3 className="font-bold text-primary text-lg">{c.name}</h3>
                   <p className="mt-1 text-xs text-muted-foreground font-medium">{c.duration}</p>
+                  {c.examType && (
+                    <span className="mt-2 inline-flex items-center justify-center gap-1 rounded-full bg-primary/10 px-3 py-1 text-xs font-extrabold text-primary w-fit mx-auto">
+                      <Award className="h-3 w-3" /> {c.examType}
+                    </span>
+                  )}
                   <div className="mt-auto pt-4 inline-flex items-center justify-center gap-1.5 rounded-full border border-primary/40 px-4 py-1.5 text-xs font-bold text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
                     View Details <ArrowRight className="h-3 w-3" />
                   </div>
@@ -66,6 +71,11 @@ function CoursesPage() {
                   <div>
                     <h3 className="font-bold text-primary">{c.name}</h3>
                     <p className="mt-1 text-xs text-muted-foreground line-clamp-2">{c.fullName || c.name}</p>
+                    {c.examType && (
+                      <span className="mt-2 inline-flex items-center gap-1 rounded-full bg-secondary px-2.5 py-0.5 text-[11px] font-extrabold text-primary">
+                        <Award className="h-3 w-3" /> {c.examType}
+                      </span>
+                    )}
                   </div>
                 </div>
                 <div className="mt-auto pt-5 flex items-center justify-between text-xs font-bold">

@@ -14,6 +14,7 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as FacultyRouteImport } from './routes/faculty'
 import { Route as GalleryRouteImport } from './routes/gallery'
+import { Route as OnlineCoachingRouteImport } from './routes/online-coaching'
 import { Route as TestimonialsRouteImport } from './routes/testimonials'
 import { Route as CoursesIndexRouteImport } from './routes/courses.index'
 import { Route as CoursesSlugRouteImport } from './routes/courses.$slug'
@@ -43,6 +44,11 @@ const GalleryRoute = GalleryRouteImport.update({
   path: '/gallery',
   getParentRoute: () => rootRouteImport,
 } as any)
+const OnlineCoachingRoute = OnlineCoachingRouteImport.update({
+  id: '/online-coaching',
+  path: '/online-coaching',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TestimonialsRoute = TestimonialsRouteImport.update({
   id: '/testimonials',
   path: '/testimonials',
@@ -65,6 +71,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/faculty': typeof FacultyRoute
   '/gallery': typeof GalleryRoute
+  '/online-coaching': typeof OnlineCoachingRoute
   '/testimonials': typeof TestimonialsRoute
   '/courses/$slug': typeof CoursesSlugRoute
   '/courses/': typeof CoursesIndexRoute
@@ -75,6 +82,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/faculty': typeof FacultyRoute
   '/gallery': typeof GalleryRoute
+  '/online-coaching': typeof OnlineCoachingRoute
   '/testimonials': typeof TestimonialsRoute
   '/courses/$slug': typeof CoursesSlugRoute
   '/courses': typeof CoursesIndexRoute
@@ -86,6 +94,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/faculty': typeof FacultyRoute
   '/gallery': typeof GalleryRoute
+  '/online-coaching': typeof OnlineCoachingRoute
   '/testimonials': typeof TestimonialsRoute
   '/courses/$slug': typeof CoursesSlugRoute
   '/courses/': typeof CoursesIndexRoute
@@ -98,6 +107,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/faculty'
     | '/gallery'
+    | '/online-coaching'
     | '/testimonials'
     | '/courses/$slug'
     | '/courses/'
@@ -108,6 +118,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/faculty'
     | '/gallery'
+    | '/online-coaching'
     | '/testimonials'
     | '/courses/$slug'
     | '/courses'
@@ -118,6 +129,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/faculty'
     | '/gallery'
+    | '/online-coaching'
     | '/testimonials'
     | '/courses/$slug'
     | '/courses/'
@@ -129,6 +141,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   FacultyRoute: typeof FacultyRoute
   GalleryRoute: typeof GalleryRoute
+  OnlineCoachingRoute: typeof OnlineCoachingRoute
   TestimonialsRoute: typeof TestimonialsRoute
   CoursesSlugRoute: typeof CoursesSlugRoute
   CoursesIndexRoute: typeof CoursesIndexRoute
@@ -171,6 +184,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GalleryRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/online-coaching': {
+      id: '/online-coaching'
+      path: '/online-coaching'
+      fullPath: '/online-coaching'
+      preLoaderRoute: typeof OnlineCoachingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/testimonials': {
       id: '/testimonials'
       path: '/testimonials'
@@ -201,6 +221,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   FacultyRoute: FacultyRoute,
   GalleryRoute: GalleryRoute,
+  OnlineCoachingRoute: OnlineCoachingRoute,
   TestimonialsRoute: TestimonialsRoute,
   CoursesSlugRoute: CoursesSlugRoute,
   CoursesIndexRoute: CoursesIndexRoute,
