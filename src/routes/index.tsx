@@ -154,41 +154,47 @@ function Index() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.9, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="relative mx-auto max-w-md lg:max-w-none">
-              <div className="absolute inset-6 rounded-full border-2 border-dashed border-white/25 animate-spin-slow" />
-              <div className="absolute inset-16 rounded-full border border-white/15 animate-spin-slow" style={{ animationDirection: "reverse", animationDuration: "30s" }} />
+            <div className="relative mx-auto max-w-md lg:max-w-none px-4 sm:px-6">
+              {/* Soft decorative background glow */}
+              <div className="absolute inset-0 rounded-[3rem] bg-gradient-to-tr from-[var(--gold)]/30 to-white/20 blur-3xl -z-10 transform scale-95" />
 
-              <img src={nurseHero} alt="Professional nurse holding clipboard" width={900} height={1100} className="relative z-10 w-full h-auto drop-shadow-2xl" />
+              {/* Beautifully framed portrait */}
+              <div className="relative rounded-[2.5rem] overflow-hidden shadow-[0_25px_60px_-15px_rgba(0,0,0,0.5)] border-4 border-white/25 bg-white/5 aspect-[4/5] sm:aspect-[3/4]">
+                <img src={nurseHero} alt="Professional nursing student at Teja Academy" width={900} height={1100} className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700" />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent opacity-30" />
+              </div>
 
+              {/* Top Right Floating Badge - Our Promise */}
               <motion.div
-                className="absolute -top-2 -right-2 sm:top-6 sm:right-2 z-20"
-                animate={{ rotate: [0, -6, 6, 0] }}
-                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute -top-4 -right-2 sm:-top-6 sm:-right-4 z-20 bg-white/95 backdrop-blur-md rounded-2xl shadow-2xl px-5 py-3.5 border border-white/60 flex items-center gap-3.5"
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: [0, -6, 0] }}
+                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
               >
-                <div className="relative">
-                  <div className="absolute inset-0 rounded-full bg-[var(--gold)] animate-pulse-ring" />
-                  <div className="relative grid h-28 w-28 sm:h-36 sm:w-36 place-items-center rounded-full bg-[var(--gold)] text-[var(--gold-foreground)] text-center font-black text-xs sm:text-sm shadow-xl">
-                    Your<br /><span className="text-primary text-base">Success</span><br />Our Promise
-                  </div>
-                </div>
-              </motion.div>
-
-              <motion.div
-                className="absolute -left-2 top-1/3 z-20 bg-white rounded-2xl shadow-2xl px-4 py-3 flex items-center gap-3"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.6 }}
-              >
-                <div className="grid h-10 w-10 place-items-center rounded-xl bg-primary/10 text-primary animate-heartbeat">
-                  <HeartPulse className="h-5 w-5" />
+                <div className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-[var(--gold)] text-[var(--gold-foreground)] shadow-md">
+                  <Sparkles className="h-6 w-6" />
                 </div>
                 <div>
-                  <div className="text-xs text-muted-foreground">Live Clinical</div>
-                  <div className="text-sm font-black text-foreground">Postings</div>
+                  <div className="text-[11px] font-extrabold uppercase tracking-wider text-muted-foreground">Our Promise</div>
+                  <div className="text-sm sm:text-base font-black text-primary">Your Career Success</div>
                 </div>
               </motion.div>
 
-
+              {/* Bottom Left Floating Badge - Live Clinical Postings */}
+              <motion.div
+                className="absolute -left-2 bottom-8 sm:-left-6 sm:bottom-12 z-20 bg-white/95 backdrop-blur-md rounded-2xl shadow-2xl px-5 py-3.5 border border-white/60 flex items-center gap-3.5"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: [0, 6, 0] }}
+                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+              >
+                <div className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-primary/15 text-primary animate-heartbeat">
+                  <HeartPulse className="h-6 w-6" />
+                </div>
+                <div>
+                  <div className="text-[11px] font-extrabold uppercase tracking-wider text-muted-foreground">Hands-on Training</div>
+                  <div className="text-sm sm:text-base font-black text-foreground">Live Clinical Postings</div>
+                </div>
+              </motion.div>
             </div>
           </motion.div>
         </div>

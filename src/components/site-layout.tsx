@@ -16,14 +16,23 @@ export function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-border">
-      <div className="mx-auto max-w-7xl px-4 py-3 flex items-center gap-4">
+      <div className="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between gap-2 sm:gap-4">
         <Link to="/" className="flex items-center gap-3 shrink-0">
-          <img src="/logo.jpeg" alt="TEJA Nursing Academy Logo" className="h-16 sm:h-[4.5rem] w-auto object-contain rounded-md scale-110 origin-left" />
+          <img src="/logo.jpeg" alt="TEJA Nursing Academy Logo" className="h-14 sm:h-[4.5rem] w-auto object-contain rounded-md shrink-0" />
           <div className="leading-tight hidden sm:flex flex-col justify-center">
             <div className="font-black text-primary text-xl sm:text-2xl tracking-wider uppercase">TEJA</div>
             <div className="text-xs sm:text-sm text-muted-foreground font-bold uppercase tracking-wider mt-0.5">Nursing Academy<br />& Coaching Centre</div>
           </div>
         </Link>
+
+        {/* Mobile Centered Academy Name */}
+        <Link to="/" className="sm:hidden flex flex-col items-center justify-center text-center mx-auto px-1">
+          <div className="font-black text-primary text-lg tracking-widest uppercase leading-none">TEJA</div>
+          <div className="text-[10px] font-extrabold text-muted-foreground uppercase tracking-wider mt-1 leading-tight">
+            Nursing Academy<br />& Coaching Centre
+          </div>
+        </Link>
+
         <nav className="hidden lg:flex items-center gap-6 mx-auto text-base font-medium">
           {navLinks.map((l) => (
             <Link
@@ -41,7 +50,7 @@ export function Navbar() {
         <a href={`tel:${PHONE}`} className="hidden sm:inline-flex ml-auto items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-primary-foreground text-sm font-semibold shadow-[var(--shadow-soft)] hover:bg-primary-dark transition-colors">
           <Phone className="h-4 w-4" /> {PHONE}
         </a>
-        <button aria-label="Menu" onClick={() => setMenuOpen((v) => !v)} className="lg:hidden ml-auto grid h-10 w-10 place-items-center rounded-full bg-primary text-primary-foreground">
+        <button aria-label="Menu" onClick={() => setMenuOpen((v) => !v)} className="lg:hidden shrink-0 grid h-10 w-10 place-items-center rounded-full bg-primary text-primary-foreground shadow-md">
           {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </div>
