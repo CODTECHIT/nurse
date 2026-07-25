@@ -47,7 +47,6 @@ function Index() {
         <Marquee speed={38}>
           {[
             "🎓 Admissions Open — GNM & B.Sc Nursing 2026-27",
-            "🩺 Free demo class every Saturday 10 AM",
             "🏆 Merit scholarships up to 30% for toppers",
             "🌍 NCLEX-RN batch starting soon — limited seats",
             "📞 Call 9052223330 for instant admission counselling",
@@ -359,10 +358,10 @@ function Index() {
                 <h2 className="mt-3 text-4xl sm:text-5xl font-black tracking-tight">ONLINE CLASSES</h2>
                 <p className="mt-2 text-base sm:text-lg text-muted-foreground">Complete semester and year-wise digital lectures available on our Android application.</p>
               </div>
-              <a 
-                href={APP_LINK} 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href={APP_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-pink-600 px-6 py-3 text-white font-bold shadow-lg hover:brightness-110 hover:scale-[1.02] transition-all w-fit"
               >
                 <Download className="h-5 w-5" /> Download Android App <ExternalLink className="h-4 w-4 opacity-80" />
@@ -392,10 +391,10 @@ function Index() {
                   </div>
 
                   <div className="mt-7 pt-5 border-t border-border/40">
-                    <a 
-                      href={APP_LINK} 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
+                    <a
+                      href={APP_LINK}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="w-full inline-flex items-center justify-center gap-2 rounded-full border-2 border-primary bg-primary/5 px-5 py-3 text-primary font-bold hover:bg-primary hover:text-white transition-colors text-sm"
                     >
                       <Download className="h-4 w-4" /> Watch on Android App
@@ -420,8 +419,8 @@ function Index() {
                 <h2 className="mt-3 text-4xl sm:text-5xl font-black tracking-tight">ONLINE COACHING FOR JOB'S</h2>
                 <p className="mt-2 text-base sm:text-lg text-muted-foreground">Specialized online coaching for Nursing Officers, Lab Technicians and ANM competitive exams.</p>
               </div>
-              <Link 
-                to="/online-coaching" 
+              <Link
+                to="/online-coaching"
                 className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-white font-bold shadow-lg hover:bg-primary-dark transition-all w-fit"
               >
                 View Full Coaching Details <ArrowRight className="h-4 w-4" />
@@ -452,10 +451,10 @@ function Index() {
                   </div>
 
                   <div className="mt-8 pt-6 border-t border-border/40">
-                    <a 
-                      href={APP_LINK} 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
+                    <a
+                      href={APP_LINK}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-6 py-3.5 text-white font-bold shadow-md hover:brightness-105 hover:scale-[1.02] transition-all text-sm"
                     >
                       <Smartphone className="h-4 w-4 fill-current" /> Join Coaching on App <ExternalLink className="h-4 w-4" />
