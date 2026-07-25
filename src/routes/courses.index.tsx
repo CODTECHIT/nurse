@@ -32,11 +32,11 @@ function CoursesPage() {
               <Link key={c.slug} to="/courses/$slug" params={{ slug: c.slug }} className="group rounded-2xl bg-white overflow-hidden shadow-[var(--shadow-card)] hover:-translate-y-1 hover:shadow-[var(--shadow-soft)] transition-all border border-border/60 flex flex-col">
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <img src={c.img} alt={c.name} loading="lazy" className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                  <div className="absolute -bottom-5 left-4 grid h-11 w-11 place-items-center rounded-full bg-primary text-primary-foreground shadow-lg">
+                  <div className="absolute bottom-3 left-3 grid h-11 w-11 place-items-center rounded-full bg-primary text-primary-foreground shadow-lg">
                     <GraduationCap className="h-5 w-5" />
                   </div>
                 </div>
-                <div className="p-5 pt-7 text-center flex-1 flex flex-col">
+                <div className="p-5 text-center flex-1 flex flex-col">
                   <h3 className="font-bold text-primary text-lg">{c.name}</h3>
                   <p className="mt-1 text-xs text-muted-foreground font-medium">{c.duration}</p>
                   {c.examType && (
@@ -102,11 +102,11 @@ function CoursesPage() {
               <article key={c.slug} className="group rounded-2xl bg-white overflow-hidden shadow-[var(--shadow-card)] hover:-translate-y-1 hover:shadow-[var(--shadow-soft)] transition-all border border-border/60 flex flex-col">
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <img src={c.img} alt={c.name} loading="lazy" className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                  <div className="absolute -bottom-5 left-4 grid h-11 w-11 place-items-center rounded-full bg-[var(--gold)] text-[var(--gold-foreground)] shadow-lg">
+                  <div className="absolute bottom-3 left-3 grid h-11 w-11 place-items-center rounded-full bg-[var(--gold)] text-[var(--gold-foreground)] shadow-lg">
                     <BookOpen className="h-5 w-5" />
                   </div>
                 </div>
-                <div className="p-5 pt-7 text-center flex-1 flex flex-col">
+                <div className="p-5 text-center flex-1 flex flex-col">
                   <h3 className="font-bold text-primary text-lg">{c.name}</h3>
                   <p className="mt-1 text-xs text-muted-foreground font-medium">{c.desc}</p>
                   <Link to="/contact" className="mt-auto pt-4 inline-flex items-center justify-center gap-1.5 rounded-full border border-[var(--gold)]/40 px-4 py-1.5 text-xs font-bold text-[var(--gold-foreground)] bg-[var(--gold)]/10 hover:bg-[var(--gold)] hover:text-[var(--gold-foreground)] transition-colors">

@@ -285,11 +285,11 @@ function Index() {
                       <img src={c.img} alt={c.name} loading="lazy" className="h-full w-full object-cover group-hover:scale-110 transition-transform duration-700" />
                       <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                       <div className="absolute top-3 left-3 rounded-full bg-white/95 backdrop-blur px-3 py-1 text-[10px] font-black uppercase tracking-wider text-primary">Popular</div>
-                      <div className="absolute -bottom-5 left-4 grid h-12 w-12 place-items-center rounded-2xl bg-primary text-primary-foreground shadow-lg group-hover:rotate-12 transition-transform">
+                      <div className="absolute bottom-3 left-3 grid h-12 w-12 place-items-center rounded-2xl bg-primary text-primary-foreground shadow-lg group-hover:rotate-12 transition-transform">
                         <GraduationCap className="h-5 w-5" />
                       </div>
                     </div>
-                    <div className="p-5 pt-7 flex-1 flex flex-col">
+                    <div className="p-5 flex-1 flex flex-col">
                       <h3 className="font-bold text-primary text-xl">{c.name}</h3>
                       <p className="mt-1 text-sm text-muted-foreground">{c.duration}</p>
                       {c.examType && (

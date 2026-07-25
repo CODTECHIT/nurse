@@ -203,6 +203,11 @@ export function Footer() {
       </div>
       <div className="border-t border-white/10 py-4 text-center text-xs text-white/60">
         © {new Date().getFullYear()} TEJA Nursing Academy & Coaching Centre. All rights reserved.
+        <br />
+        Designed &amp; Developed by{" "}
+        <a href="https://codtechitsolutions.com/" target="_blank" rel="noopener noreferrer" className="underline hover:text-white transition-colors">
+          CodTech IT Solutions
+        </a>
       </div>
     </footer>
   );
