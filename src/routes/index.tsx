@@ -20,8 +20,8 @@ export const Route = createFileRoute("/")({
 });
 
 const announcements = [
-  { icon: GraduationCap, title: "Admissions Open", desc: "For GNM, B.Sc Nursing 2025-26", cta: "Apply Now", tone: "pink" },
-  { icon: Bell, title: "Weekend Batches", desc: "New Weekend Batches Starting Soon", cta: "Know More", tone: "gold" },
+  { icon: GraduationCap, title: "Admissions Open", desc: "For GNM, B.Sc Nursing 2026-27", cta: "Apply Now", tone: "pink" },
+  { icon: HeartPulse, title: "Clinical Training", desc: "Rotational Postings in 6 Partner Hospitals", cta: "Know More", tone: "gold" },
   { icon: BookOpen, title: "New GNM Batch", desc: "New Batch Starting From 15th June 2026", cta: "Enroll Now", tone: "pink" },
   { icon: Award, title: "Scholarship Available", desc: "Merit Based Scholarship For Deserving Students", cta: "Check Now", tone: "gold" },
 ];
@@ -313,7 +313,7 @@ function Index() {
               <div className="relative flex flex-wrap items-baseline gap-3 justify-between">
                 <div>
                   <h3 className="text-2xl sm:text-3xl font-black text-gradient-pink">Paramedical Diploma Courses</h3>
-                  <p className="mt-2 text-base text-muted-foreground">2026 exam batch • Eligibility: Intermediate Pass • Free Hostel</p>
+                  <p className="mt-2 text-base text-muted-foreground">2026-27 exam batch • Eligibility: Intermediate Pass • Free Hostel</p>
                 </div>
                 <span className="rounded-full bg-[var(--gold)] px-4 py-1.5 text-xs font-bold text-[var(--gold-foreground)] shadow-md">✨ Admissions Open</span>
               </div>

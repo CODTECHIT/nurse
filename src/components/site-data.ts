@@ -108,7 +108,7 @@ export const allCourses: Course[] = [
     ageLimit: "No Age Limit",
     examType: "Annual Exams",
     whatsappName: "Post B.Sc Nursing Course",
-    img: courseBsc,
+    img: courseStaff,
   },
   {
     slug: "bsc-mlt",
@@ -122,7 +122,7 @@ export const allCourses: Course[] = [
     ageLimit: "No Age Limit",
     examType: "Annual Exams",
     whatsappName: "B.Sc MLT Lab Technician Course",
-    img: courseGnm,
+    img: "/bsc mlt.png",
   },
   {
     slug: "bpt",
@@ -137,7 +137,7 @@ export const allCourses: Course[] = [
     ageLimit: "No Age Limit",
     examType: "Annual Exams",
     whatsappName: "BPT Physiotherapy Course",
-    img: courseMsc,
+    img: "/BPTphysiotherapy.png",
   },
   { ...PARAMEDICAL_SHARED, slug: "dmlt", name: "DMLT", fullName: "Lab Technician / Medical Laboratory Technology", whatsappName: "DMLT Lab Technician Course" },
   { ...PARAMEDICAL_SHARED, slug: "dmit", name: "DMIT", fullName: "Scanning / Medical Imaging Technician", whatsappName: "DMIT Medical Imaging Course" },
@@ -187,28 +187,28 @@ export const faculty = [
 
 export const testimonials = [
   {
-    img: testimonial1,
+    img: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=300&q=80",
     quote: "TEJA Nursing Academy helped me build confidence and crack my exam in the first attempt. The faculty is excellent and always supportive.",
-    name: "Anjali Sharma",
-    role: "GNM Student",
+    name: "Lakshmi Narayana Reddy",
+    role: "GNM Graduate - NIMS Hyderabad",
   },
   {
-    img: testimonial1,
+    img: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=300&q=80",
     quote: "The practical training and mock exams gave me the edge I needed. I cleared my Staff Nurse exam thanks to TEJA.",
-    name: "Priya Reddy",
-    role: "Staff Nurse",
+    name: "Priyanka Goud",
+    role: "Staff Nurse - Yashoda Hospitals",
   },
   {
-    img: testimonial1,
+    img: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=300&q=80",
     quote: "Outstanding faculty and study materials. The NCLEX coaching prepared me for a career abroad.",
-    name: "Kavya Menon",
-    role: "NCLEX Aspirant",
+    name: "Anusha Chowdary",
+    role: "NCLEX Aspirant - USA Registered Nurse",
   },
   {
-    img: testimonial1,
+    img: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=300&q=80",
     quote: "The paramedical diploma course opened up a great career for me. Highly recommend TEJA for practical training.",
-    name: "Rahul Verma",
-    role: "DMLT Graduate",
+    name: "Srinivas Rao",
+    role: "DMLT Graduate - Apollo Diagnostics",
   },
 ];
 
