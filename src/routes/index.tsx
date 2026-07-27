@@ -594,16 +594,15 @@ function Index() {
               >
                 <Quote className="h-10 w-10 text-primary/15" />
                 <p className="text-base text-foreground/85 leading-relaxed -mt-2">{testimonials[tIndex].quote}</p>
-                <div className="mt-6 flex items-center gap-4">
-                  <img src={testimonials[tIndex].img} alt={testimonials[tIndex].name} loading="lazy" className="h-14 w-14 rounded-full object-cover ring-2 ring-primary/30" />
+                <div className="mt-6 flex items-center justify-between">
                   <div>
-                    <div className="flex text-[var(--gold)]">
+                    <div className="flex text-[var(--gold)] mb-1">
                       {Array.from({ length: 5 }).map((_, i) => <Star key={i} className="h-4 w-4 fill-current" />)}
                     </div>
                     <div className="font-bold text-lg text-foreground">{testimonials[tIndex].name}</div>
                     <div className="text-sm text-muted-foreground">{testimonials[tIndex].role}</div>
                   </div>
-                  <div className="ml-auto flex gap-2">
+                  <div className="flex gap-2">
                     <button aria-label="Previous" onClick={() => setTIndex((i) => (i - 1 + testimonials.length) % testimonials.length)} className="grid h-10 w-10 place-items-center rounded-full border border-primary text-primary hover:bg-primary hover:text-primary-foreground transition">
                       <ChevronLeft className="h-4 w-4" />
                     </button>

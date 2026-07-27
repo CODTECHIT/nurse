@@ -6,7 +6,6 @@ import courseNclex from "@/assets/course-nclex.jpg";
 import gallery1 from "@/assets/gallery-1.jpg";
 import gallery3 from "@/assets/gallery-3.jpg";
 import gallery4 from "@/assets/gallery-4.jpg";
-import testimonial1 from "@/assets/testimonial-1.jpg";
 import {
   UserCheck, Stethoscope, BookOpen, Trophy, Building2,
   Monitor, FileCheck, PenTool, Briefcase, HelpCircle, Users,
@@ -187,25 +186,21 @@ export const faculty = [
 
 export const testimonials = [
   {
-    img: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=300&q=80",
     quote: "TEJA Nursing Academy helped me build confidence and crack my exam in the first attempt. The faculty is excellent and always supportive.",
     name: "Lakshmi Narayana Reddy",
     role: "GNM Graduate - NIMS Hyderabad",
   },
   {
-    img: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=300&q=80",
     quote: "The practical training and mock exams gave me the edge I needed. I cleared my Staff Nurse exam thanks to TEJA.",
     name: "Priyanka Goud",
     role: "Staff Nurse - Yashoda Hospitals",
   },
   {
-    img: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=300&q=80",
     quote: "Outstanding faculty and study materials. The NCLEX coaching prepared me for a career abroad.",
     name: "Anusha Chowdary",
     role: "NCLEX Aspirant - USA Registered Nurse",
   },
   {
-    img: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=300&q=80",
     quote: "The paramedical diploma course opened up a great career for me. Highly recommend TEJA for practical training.",
     name: "Srinivas Rao",
     role: "DMLT Graduate - Apollo Diagnostics",

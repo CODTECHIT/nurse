@@ -27,15 +27,12 @@ function TestimonialsPage() {
               <div key={t.name} className="rounded-3xl bg-white p-6 sm:p-8 shadow-[var(--shadow-card)] border border-border/60 relative">
                 <Quote className="h-8 w-8 text-primary/20" />
                 <p className="mt-2 text-sm sm:text-base text-foreground/80 leading-relaxed">{t.quote}</p>
-                <div className="mt-5 flex items-center gap-4">
-                  <img src={t.img} alt={t.name} loading="lazy" className="h-14 w-14 rounded-full object-cover ring-2 ring-primary/30" />
-                  <div>
-                    <div className="flex text-[var(--gold)]">
-                      {Array.from({ length: 5 }).map((_, i) => <Star key={i} className="h-4 w-4 fill-current" />)}
-                    </div>
-                    <div className="font-bold text-foreground">{t.name}</div>
-                    <div className="text-xs text-muted-foreground">{t.role}</div>
+                <div className="mt-5">
+                  <div className="flex text-[var(--gold)] mb-1">
+                    {Array.from({ length: 5 }).map((_, i) => <Star key={i} className="h-4 w-4 fill-current" />)}
                   </div>
+                  <div className="font-bold text-foreground">{t.name}</div>
+                  <div className="text-xs text-muted-foreground">{t.role}</div>
                 </div>
               </div>
             ))}
