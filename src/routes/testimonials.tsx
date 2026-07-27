@@ -2,15 +2,14 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Star, Quote } from "lucide-react";
 import { PageShell, PageHero, SectionTitle } from "@/components/site-layout";
 import { testimonials } from "@/components/site-data";
+import { getSeoMeta } from "@/lib/seo";
 
 export const Route = createFileRoute("/testimonials")({
-  head: () => ({
-    meta: [
-      { title: "Testimonials — TEJA Nursing Academy" },
-      { name: "description", content: "Success stories and testimonials from TEJA Nursing Academy students who cleared their exams and started their nursing careers." },
-      { property: "og:title", content: "Student Testimonials — TEJA" },
-      { property: "og:description", content: "Real success stories from our nursing graduates." },
-    ],
+  head: () => getSeoMeta({
+    title: "Student Testimonials & Success Stories — TEJA Nursing Academy Nalgonda",
+    description: "Read verified student reviews and success stories from TEJA Nursing Academy alumni working in NIMS, Yashoda, Apollo, AIIMS and abroad as Registered Nurses.",
+    keywords: ["TEJA Nursing Academy reviews", "Student success stories Nalgonda", "Nursing college placement reviews Telangana", "GNM student testimonials Nalgonda", "Staff nurse exam toppers Nalgonda"],
+    path: "/testimonials",
   }),
   component: TestimonialsPage,
 });

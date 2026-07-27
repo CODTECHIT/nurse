@@ -2,15 +2,14 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Phone, MessageCircle, MapPin, Clock, Mail } from "lucide-react";
 import { PageShell, PageHero, SectionTitle } from "@/components/site-layout";
 import { PHONE, WHATSAPP } from "@/components/site-data";
+import { getSeoMeta } from "@/lib/seo";
 
 export const Route = createFileRoute("/contact")({
-  head: () => ({
-    meta: [
-      { title: "Contact — TEJA Nursing Academy" },
-      { name: "description", content: "Contact TEJA Nursing Academy in Nalgonda, Telangana. Call, WhatsApp or visit us for admissions in GNM, B.Sc, NCLEX and Paramedical courses." },
-      { property: "og:title", content: "Contact TEJA Nursing Academy" },
-      { property: "og:description", content: "Get in touch for admissions and enquiries." },
-    ],
+  head: () => getSeoMeta({
+    title: "Contact Us — Address, Phone & Admissions | TEJA Nursing Academy Nalgonda",
+    description: "Contact TEJA Nursing Academy in Nalgonda, Telangana. Call 9052223330 or WhatsApp us for admissions in GNM, B.Sc Nursing, B.Sc MLT, BPT, and Paramedical courses.",
+    keywords: ["TEJA Nursing Academy contact number", "TEJA Nursing Academy Nalgonda address", "Nursing college admission contact Telangana", "GNM admission enquiry Nalgonda", "Paramedical institute Nalgonda phone number"],
+    path: "/contact",
   }),
   component: ContactPage,
 });

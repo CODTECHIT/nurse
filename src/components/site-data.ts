@@ -14,6 +14,9 @@ import {
 
 export const PHONE = "9052223330";
 export const WHATSAPP = "9052223330";
+export const SITE_URL = "https://tejanursingacademy.com";
+export const SITE_NAME = "TEJA Nursing Academy & Coaching Centre";
+export const SITE_TAGLINE = "Best Nursing & Paramedical Institute in Nalgonda, Telangana";
 
 export const navLinks = [
   { label: "Home", to: "/" },

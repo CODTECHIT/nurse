@@ -2,15 +2,14 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, GraduationCap, Sparkles, BookOpen, Award } from "lucide-react";
 import { PageShell, PageHero, SectionTitle } from "@/components/site-layout";
 import { allCourses, coachingPrograms } from "@/components/site-data";
+import { getSeoMeta } from "@/lib/seo";
 
 export const Route = createFileRoute("/courses/")({
-  head: () => ({
-    meta: [
-      { title: "Courses — TEJA Nursing Academy" },
-      { name: "description", content: "Explore GNM, B.Sc Nursing, B.Sc MLT, BPT, and Paramedical Diploma courses at TEJA Nursing Academy." },
-      { property: "og:title", content: "Nursing & Paramedical Courses — TEJA" },
-      { property: "og:description", content: "GNM, B.Sc Nursing, B.Sc MLT, BPT, and Paramedical Diplomas." },
-    ],
+  head: () => getSeoMeta({
+    title: "Nursing & Paramedical Courses — TEJA Nursing Academy Nalgonda",
+    description: "Explore accredited nursing & paramedical courses in Nalgonda: GNM, B.Sc Nursing, Post B.Sc Nursing, B.Sc MLT, BPT, DMLT, Anesthesia, OT Tech & 13+ diploma programs with hospital internships.",
+    keywords: ["GNM course Nalgonda", "B.Sc Nursing college Nalgonda", "B.Sc MLT course Telangana", "BPT physiotherapy college Nalgonda", "Paramedical diploma courses Nalgonda", "DMLT course Nalgonda", "Anesthesia technician course Telangana", "OT technician course Nalgonda"],
+    path: "/courses",
   }),
   component: CoursesPage,
 });

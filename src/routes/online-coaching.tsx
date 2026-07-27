@@ -6,13 +6,14 @@ import {
 import { PageShell, PageHero } from "@/components/site-layout";
 import { APP_LINK, onlineCoachingList, onlineClassesList, PHONE, WHATSAPP } from "@/components/site-data";
 import { Reveal, motion } from "@/components/site-motion";
+import { getSeoMeta } from "@/lib/seo";
 
 export const Route = createFileRoute("/online-coaching")({
-  head: () => ({
-    meta: [
-      { title: "Online Coaching & Digital Classes — TEJA Nursing Academy" },
-      { name: "description", content: "Online classes for GNM, B.Sc Nursing, Post B.Sc, DMLT, B.Sc MLT and job coaching for Staff Nurse, Nursing Officer, Lab Technician and ANM via Android App." },
-    ],
+  head: () => getSeoMeta({
+    title: "Online Nursing Coaching & Digital Classes — Staff Nurse, NORCET & NCLEX | TEJA",
+    description: "Join TEJA Nursing Academy online coaching classes via mobile app. Expert live & recorded sessions for Staff Nurse Govt jobs, AIIMS NORCET, NCLEX-RN, ANM, and GNM/B.Sc semester exams.",
+    keywords: ["Staff nurse online coaching Hyderabad", "Nursing officer coaching Telangana", "AIIMS NORCET coaching Telangana", "NCLEX online coaching India", "GNM online classes app", "B.Sc nursing semester online tuition", "Lab technician online coaching"],
+    path: "/online-coaching",
   }),
   component: OnlineCoachingPage,
 });

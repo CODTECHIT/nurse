@@ -2,15 +2,14 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Target, Eye, Heart, Award } from "lucide-react";
 import { PageShell, PageHero, SectionTitle } from "@/components/site-layout";
 import { whyChoose, stats } from "@/components/site-data";
+import { getSeoMeta } from "@/lib/seo";
 
 export const Route = createFileRoute("/about")({
-  head: () => ({
-    meta: [
-      { title: "About Us — TEJA Nursing Academy" },
-      { name: "description", content: "Learn about TEJA Nursing Academy — our mission, vision and commitment to shaping successful nursing professionals in Nalgonda." },
-      { property: "og:title", content: "About TEJA Nursing Academy" },
-      { property: "og:description", content: "Our mission, vision and story — training the next generation of nurses." },
-    ],
+  head: () => getSeoMeta({
+    title: "About Us — TEJA Nursing Academy & Coaching Centre Nalgonda",
+    description: "Learn about TEJA Nursing Academy in Nalgonda — over a decade of excellence in nursing education, experienced faculty, practical hospital training and 5000+ alumni.",
+    keywords: ["About TEJA Nursing Academy", "Nursing academy history Nalgonda", "Best nursing college faculty Telangana", "Nursing education Nalgonda", "Paramedical training institute Nalgonda"],
+    path: "/about",
   }),
   component: AboutPage,
 });

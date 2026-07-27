@@ -2,15 +2,14 @@ import { createFileRoute } from "@tanstack/react-router";
 import { UserCheck } from "lucide-react";
 import { PageShell, PageHero, SectionTitle } from "@/components/site-layout";
 import { faculty, facilities } from "@/components/site-data";
+import { getSeoMeta } from "@/lib/seo";
 
 export const Route = createFileRoute("/faculty")({
-  head: () => ({
-    meta: [
-      { title: "Faculty — TEJA Nursing Academy" },
-      { name: "description", content: "Meet the expert faculty of TEJA Nursing Academy — experienced nurses, doctors and instructors mentoring the next generation." },
-      { property: "og:title", content: "Our Faculty — TEJA Nursing Academy" },
-      { property: "og:description", content: "Experienced faculty guiding future nursing professionals." },
-    ],
+  head: () => getSeoMeta({
+    title: "Our Expert Faculty & Instructors — TEJA Nursing Academy Nalgonda",
+    description: "Meet the experienced nursing instructors, doctors, and NCLEX coaches at TEJA Nursing Academy in Nalgonda, Telangana. Dedicated mentorship with 15+ years of average experience.",
+    keywords: ["TEJA Nursing Academy faculty", "Best nursing teachers Nalgonda", "NCLEX coach Telangana", "Medical surgical nursing professors Nalgonda", "Paramedical instructors Nalgonda"],
+    path: "/faculty",
   }),
   component: FacultyPage,
 });

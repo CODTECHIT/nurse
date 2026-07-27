@@ -8,6 +8,7 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
+import { getSeoMeta, defaultOrganizationSchema, defaultLocalBusinessSchema } from "@/lib/seo";
 
 import appCss from "../styles.css?url";
 
@@ -71,26 +72,33 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
-  head: () => ({
-    meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "TEJA Nursing Academy & Coaching Centre — Nalgonda" },
-      { name: "description", content: "Best nursing academy & coaching centre in Nalgonda, Telangana. GNM, B.Sc Nursing, B.Sc MLT, BPT & Paramedical courses with expert faculty and practical training." },
-      { name: "author", content: "TEJA Nursing Academy" },
-      { property: "og:title", content: "TEJA Nursing Academy & Coaching Centre" },
-      { property: "og:description", content: "Learn • Practice • Succeed. Become a Professional Healthcare Worker with TEJA Nursing Academy." },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-    links: [
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
-    ],
-  }),
+  head: () => {
+    const seo = getSeoMeta({
+      title: "TEJA Nursing Academy & Coaching Centre — Best Nursing Institute in Nalgonda",
+      description: "Best nursing academy & coaching centre in Nalgonda, Telangana. GNM, B.Sc Nursing, B.Sc MLT, BPT & 13+ Paramedical diploma courses with expert faculty and hospital training.",
+      keywords: ["TEJA Nursing Academy", "Best nursing college Nalgonda", "GNM course Nalgonda", "B.Sc Nursing Telangana", "Staff nurse coaching Hyderabad Nalgonda", "Paramedical institute Telangana", "BPT college Nalgonda", "B.Sc MLT Nalgonda", "NCLEX coaching Nalgonda", "Nursing officer online coaching"],
+      path: "/",
+      schema: [defaultOrganizationSchema, defaultLocalBusinessSchema],
+    });
+
+    return {
+      meta: [
+        { charSet: "utf-8" },
+        { name: "viewport", content: "width=device-width, initial-scale=1" },
+        { name: "google-site-verification", content: "3NbP9EP2o8rOZl93AX59Yl-k6Vuun3UgHNQIPfoHrzw" },
+        ...seo.meta,
+      ],
+      links: [
+        {
+          rel: "stylesheet",
+          href: appCss,
+        },
+        { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+        ...seo.links,
+      ],
+      scripts: seo.scripts,
+    };
+  },
   shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
@@ -102,6 +110,18 @@ function RootShell({ children }: { children: ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-TWGW03GTVV"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', 'G-TWGW03GTVV');
+            `,
+          }}
+        />
       </head>
       <body>
         {children}

@@ -1,15 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageShell, PageHero, SectionTitle } from "@/components/site-layout";
 import { galleryImgs } from "@/components/site-data";
+import { getSeoMeta } from "@/lib/seo";
 
 export const Route = createFileRoute("/gallery")({
-  head: () => ({
-    meta: [
-      { title: "Gallery — TEJA Nursing Academy" },
-      { name: "description", content: "A glimpse into life at TEJA Nursing Academy — classrooms, clinical training, events and student achievements." },
-      { property: "og:title", content: "Gallery — TEJA Nursing Academy" },
-      { property: "og:description", content: "Photos from classrooms, labs, clinical training and campus life." },
-    ],
+  head: () => getSeoMeta({
+    title: "Campus Gallery & Clinical Training Photos — TEJA Nursing Academy Nalgonda",
+    description: "Explore campus photos, smart digital classrooms, advanced medical laboratories, and live hospital clinical training sessions at TEJA Nursing Academy Nalgonda.",
+    keywords: ["TEJA Nursing Academy photos", "Nursing college campus Nalgonda", "Nursing lab photos Telangana", "Hospital clinical training gallery", "Paramedical training lab Nalgonda"],
+    path: "/gallery",
   }),
   component: GalleryPage,
 });

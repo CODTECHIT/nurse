@@ -14,8 +14,16 @@ import {
 } from "@/components/site-data";
 import { Navbar, Footer, FinalCTA, WhatsAppFloatingButton } from "@/components/site-layout";
 import { Reveal, Counter, Marquee, motion } from "@/components/site-motion";
+import { getSeoMeta, getFaqSchema } from "@/lib/seo";
 
 export const Route = createFileRoute("/")({
+  head: () => getSeoMeta({
+    title: "TEJA Nursing Academy & Coaching Centre — Best Nursing Institute in Nalgonda, Telangana",
+    description: "TEJA Nursing Academy is the #1 nursing & paramedical college in Nalgonda, Telangana. Offering GNM, B.Sc Nursing, B.Sc MLT, BPT, DMLT & 13+ diploma courses with hospital training and 100% placement support.",
+    keywords: ["TEJA Nursing Academy", "Nursing college in Nalgonda", "GNM course Nalgonda", "B.Sc Nursing college Telangana", "Paramedical institute Nalgonda", "Staff nurse coaching Hyderabad Nalgonda", "BPT physiotherapy college Nalgonda", "B.Sc MLT Nalgonda", "Best nursing coaching centre in Telangana", "NCLEX coaching Nalgonda", "Nursing officer exam preparation"],
+    path: "/",
+    schema: getFaqSchema(faqs),
+  }),
   component: Index,
 });
 

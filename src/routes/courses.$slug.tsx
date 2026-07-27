@@ -2,6 +2,7 @@ import { createFileRoute, notFound, Link } from "@tanstack/react-router";
 import { Phone, MessageCircle, ArrowLeft, Clock, Users, Building, FileCheck, GraduationCap, Award } from "lucide-react";
 import { PageShell } from "@/components/site-layout";
 import { allCourses, PHONE, WHATSAPP } from "@/components/site-data";
+import { getSeoMeta, getCourseSchema } from "@/lib/seo";
 
 export const Route = createFileRoute("/courses/$slug")({
   loader: ({ params }) => {
@@ -12,13 +13,29 @@ export const Route = createFileRoute("/courses/$slug")({
   head: ({ loaderData }) => {
     if (!loaderData?.course) return {};
     const { course } = loaderData;
-    return {
-      meta: [
-        { title: `${course.name} | TEJA Nursing Academy Nalgonda` },
-        { name: "description", content: `Get admission in ${course.name} (${course.fullName || ''}). ${course.duration} programme. Eligibility: ${course.eligibility}.` },
-        { property: "og:title", content: `${course.name} Course — TEJA` },
-      ],
-    };
+    const title = `${course.name} Course in Nalgonda — Admission, Fee & Eligibility | TEJA Nursing Academy`;
+    const description = `Apply for ${course.name} (${course.fullName || course.name}) at TEJA Nursing Academy Nalgonda. ${course.duration} programme with expert faculty and hospital clinical training. Eligibility: ${course.eligibility}.`;
+    const keywords = [
+      `${course.name} course Nalgonda`,
+      `${course.name} college Telangana`,
+      `${course.name} admission 2026`,
+      `${course.name} eligibility and fee structure`,
+      `${course.fullName || course.name} Nalgonda`,
+      "Nursing college admission Telangana",
+    ];
+    return getSeoMeta({
+      title,
+      description,
+      keywords,
+      path: `/courses/${course.slug}`,
+      image: course.img || "/logo.jpeg",
+      schema: getCourseSchema({
+        name: course.name,
+        fullName: course.fullName,
+        description,
+        duration: course.duration,
+      }),
+    });
   },
   component: CourseDetailPage,
 });
